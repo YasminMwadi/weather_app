@@ -27,7 +27,7 @@
        		</div>
 			<div class="site-header">
 				<div class="container">
-					<a href="index.html" class="branding">
+					<a href="index.php" class="branding">
 						<img src="images/logo.webp" alt="" class="logo">
 					</a>
 				</div>
@@ -46,7 +46,7 @@
 			<div class="forecast-table">
 				<div class="container">
 					<div class="forecast-container current-weather">
-						
+						<!-- binded weather data will display here -->
 					</div>
 				</div>
 			</div>
