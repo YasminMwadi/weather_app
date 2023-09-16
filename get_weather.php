@@ -5,10 +5,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = '';
     $currentDayData = ''; // Store current day's data separately
 
-    // Replace 'YOUR_POSITIONSTACK_API_KEY' with your actual Positionstack API key
+    // location API
     $positionstack_api_key = '8dffbdec1cdc02cc5b5e2cbfb62bdb69';
 
-    // Replace 'YOUR_OPENWEATHERMAP_API_KEY' with your actual OpenWeatherMap API key
+    // Weather API
     $openweathermap_api_key = '4d3cdd60814fc80ba5dc03352851748f';
 
     // Function to process and display current day's weather data
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $weatherCondition = '01d'; // Default to clear sky icon code for day
         }
 
-        // Map OpenWeatherMap condition codes to your local icon filenames
+        // Map OpenWeatherMap condition codes to my local icon filenames
         $weatherIcons = array(
             '01d' => '4.png',   // Clear sky (day)
             '01n' => '4n.png',  // Clear sky (night)
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $weatherCondition = '01d'; // Default to clear sky icon code for day
         }
 
-        // Map OpenWeatherMap condition codes to your local icon filenames
+        // Map OpenWeatherMap condition codes to my local icon filenames
         $weatherIcons = array(
             '01d' => '4.png',   // Clear sky (day)
             '01n' => '4.png',  // Clear sky (night)
@@ -173,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             throw new Exception('<h4 style="text-align: center; color: #ec2024"> Something Went wrong. Try later');
         }
 
-        // Process the Positionstack API response (you can decode it as JSON)
+        // Process the Positionstack API response
         $positionstack_data = json_decode($positionstack_response, true);
 
         if (!isset($positionstack_data['data'][0])) {
@@ -194,7 +194,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             throw new Exception("Error: Unable to connect to the OpenWeatherMap API.");
         }
 
-        // Process the OpenWeatherMap API response (you can decode it as JSON)
+        // Process the OpenWeatherMap API response
         $openweathermap_data = json_decode($openweathermap_response, true);
 
         if (!isset($openweathermap_data['list'])) {
@@ -211,7 +211,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Extract the timestamp for the forecast
             $timestamp = $forecast['dt'];
 
-            // Convert the timestamp to a full day name (e.g., Monday, Tuesday)
+            // Convert the timestamp to a full day name
             $fullDayName = date('l', $timestamp);
 
             // Check if this is a new day
@@ -249,7 +249,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Output the final result
         echo $result;
     } catch (Exception $e) {
-        // Handle exceptions and display meaningful error messages
+        // Handle exceptions
         echo '<h4 style="text-align: center;">' . $e->getMessage() . '</h4>';
     }
 }
