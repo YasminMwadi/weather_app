@@ -1,0 +1,64 @@
+.fullwidth-block{
+	padding: 70px 0;
+
+	.section-title{
+		@include em(36);
+		font-weight: 300;
+		color: white;
+	}
+}
+
+.filter{
+	margin-bottom: 30px;
+}
+.filter-control{
+	border:2px solid $secondary-color;
+	padding: 5px 5px 5px 20px;
+	border-radius: 30px;
+	display: inline-block;
+	white-space: nowrap;
+
+	label{
+		margin-right: 10px;
+		display: inline-block;
+		padding: 10px;
+		vertical-align: middle;
+	}
+
+
+}
+.select.control{
+	background: $secondary-color;
+	border-radius: 40px;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+	padding-right: 30px;
+	position: relative;
+
+	&:after{
+		content:" ";
+		width:7px;
+		height:9px;
+		background: url(images/arrow-down.png);
+		position: absolute;
+		right: 10px;
+		top:0;
+		bottom:0;
+		margin: auto;
+		display: block;
+		z-index: 1;
+
+	}
+
+	select{
+		padding: 10px 30px;
+		width: 110%;
+		border: none;
+		background: none;
+		outline: none;
+		appearance: none;
+		-webkit-appearance: none;
+		color: white;
+	}
+}
