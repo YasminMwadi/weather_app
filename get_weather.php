@@ -100,11 +100,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Map OpenWeatherMap condition codes to your local icon filenames
         $weatherIcons = array(
             '01d' => '4.png',   // Clear sky (day)
-            '01n' => '4n.png',  // Clear sky (night)
+            '01n' => '4.png',  // Clear sky (night)
             '02d' => '10.png',  // Few clouds (day)
-            '02n' => '10n.png', // Few clouds (night)
+            '02n' => '10.png', // Few clouds (night)
             '03d' => '10.png',  // Scattered clouds (day)
-            '03n' => '10n.png', // Scattered clouds (night)
+            '03n' => '10.png', // Scattered clouds (night)
             '04d' => '16.png',  // Broken clouds (day)
             '04n' => '16.png',  // Broken clouds (night)
             '09d' => '19.png',  // Shower rain (day)
@@ -140,7 +140,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <img src="images/icons/' . $iconFilename . '" alt="" width=48>
                 </div>
                 <div class="degree">' . round($temperatureCelsius) . '<sup>o</sup>C</div>
-                <small>' . $precipitation . '<sup>o</sup></small>
             </div>
         </div>';
     }

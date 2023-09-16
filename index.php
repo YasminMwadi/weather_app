@@ -17,19 +17,21 @@
 
 		<!-- Loading main css file -->
 		<link rel="stylesheet" href="style.css">
-
 	</head>
 
 	<body>
 		<div class="site-content">
+			  <!-- Loading spinner -->
+			<div class="loading" id="loading">
+            	<div class="spinner"></div>
+       		</div>
 			<div class="site-header">
 				<div class="container">
 					<a href="index.html" class="branding">
 						<img src="images/logo.webp" alt="" class="logo">
 					</a>
 				</div>
-			</div> <!-- .site-header -->
-
+			</div>
 			<div class="hero" data-bg-image="images/4.jpg">
 				<div class="container">
 					<div class="post">
@@ -72,6 +74,9 @@
             $('form.find-location').on('submit', function(event) {
                 event.preventDefault(); // Prevent the default form submission
 
+                // Show the loading spinner
+                $('#loading').show();
+
                 // Get the user-entered location
                 var location = $('.city-input').val();
 
@@ -81,10 +86,16 @@
                     method: 'POST',
                     data: { location: location },
                     success: function(data) {
+                        // Hide the loading spinner
+                        $('#loading').hide();
+
                         // Update the weather content on success
                         $('.current-weather').html(data);
                     },
                     error: function() {
+                        // Hide the loading spinner
+                        $('#loading').hide();
+
                         // Handle AJAX error
                         alert('An error occurred while fetching weather data.');
                     }
